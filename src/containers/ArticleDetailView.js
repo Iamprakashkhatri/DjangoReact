@@ -24,7 +24,7 @@ class ArticleDetail extends React.Component {
             Authorization:newProps.token
         }
         const articleID = this.props.match.params.articleID;
-        axios.get(`http://127.0.0.1:8000/api/${articleID}/`)
+        axios.get(`http://127.0.0.1:8000/api/${articleID}`)
             .then(res => {
                 this.setState({
                     article: res.data
@@ -41,7 +41,7 @@ class ArticleDetail extends React.Component {
             "Content-Type": "application/json",
             Authorization:this.props.token
         }
-        axios.delete(`http://127.0.0.1:8000/api/${articleID}/`);
+        axios.delete(`http://127.0.0.1:8000/api/${articleID}/delete/`);
         this.props.history.push('/');
         this.forceUpdate();
         }
@@ -73,4 +73,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(ArticleDetail);
+export default withRouter(connect(mapStateToProps)(ArticleDetail));

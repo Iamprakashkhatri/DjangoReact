@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Articles from '../components/Article';
 import CustomForm from '../components/Form';
@@ -52,4 +53,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ArticleList);
+export default withRouter(connect(mapStateToProps)(ArticleList));
